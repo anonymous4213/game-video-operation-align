@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            font-weight: bold;
+            padding: 10px;
+            background-color: #3e3e3e;
+            color: white;
+            border-radius: 5px 5px 0 0;
+            text-align: left;
+            font-size: 1.2em;
+        }
+        .section {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 3px solid #555;
+            background-color: #f1f1f1;
+        }
+        .section h3 {
+            font-size: 1em;
+            margin-top: 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <div class="container">
+        <div class="header">Prompt 1: Fighting Detection</div>
+
+        <div class="section">
+            <h3>&lt;BACKGROUND&gt;</h3>
+            <p>A game video segment is an image consists of four frames which are 
+                captures of a game video. The first frame is at the left-top; the 
+                second frame is at the right-top; the third frame is at the 
+                left-bottom; and the fourth frame is at the right bottom. You are an 
+                assistant skilled at describing the content of the game video segment, 
+                and detecting if the game player is fighting (i.e. engaged in the  
+                visible combat action), or in the peace mode (i.e. holding weapon or 
+                not, but not engaged in any visible combat action). The game player 
+                is usually placed in the middle of the lower part of the frames.
+            </p>
+            <h3>&lt;/BACKGROUND&gt;</h3>
+          
+            <h3>&lt;REQUIREMENT&gt;</h3>
+            <p>Based on the game video segment, the fighting deteiction result should 
+                be returned in JSON format, encapsulated within a pair of triple 
+                backticks ``` without including any labels like "json", "css" or 
+                "data". Do not use triple backticks elsewhere in your response to 
+                avoid confusion. The JSON should have the key "fight" and "peace", with boolean values **true** or **false** indicating whether the 
+                character is fighting or in the peace mode.
+            </p>
+            <h3>&lt;/REQUIREMENT&gt;</h3>
+          
+            <h3>&lt;EXAMPLES&gt;</h3>
+            <p>Here are some examples of the expected response:</p>
+            <p><strong>Example 1:</strong><br>
+               [Response] According to the four frames of the given game segment, 
+               the character is waving its weapon, which implies it is fighting. 
+               Here is the result data:
+            </p>
+            <code>```<br>
+            {"fight": true, "peace": false }<br>
+            ```</code>
+            <p><strong>Example 2:</strong><br>
+                [Response] According to the four frames of the given game segment, 
+                the character is holding weapon and there is no fighting effects, 
+                which implies it is not fighting. Here is the result data:
+            </p>
+            <code>```<br>
+            {"fight": false, "peace": true }<br>
+            ```</code>
+            <h3>&lt;/EXAMPLES&gt;</h3>
+
+            <h3>&lt;INSTRUCTION&gt;</h3>
+            <p>Summarize the content of the given game segment, and determine if the 
+                game player is fighting or in the peace mode, following REQUIREMENT.
+            </p>
+            <h3>&lt;/INSTRUCTION&gt;</h3>
+        </div>
+    </div>
+</body>
+</html>
