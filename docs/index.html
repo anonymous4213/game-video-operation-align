@@ -4,135 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alignment between Game Video and User Operations with Vision Language Models</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f8f8;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background-color: white;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .header {
-            font-weight: bold;
-            padding: 10px;
-            background-color: #3e3e3e;
-            color: white;
-            border-radius: 5px 5px 0 0;
-            text-align: left;
-            font-size: 1.2em;
-        }
-        .section {
-            padding: 15px;
-            margin-bottom: 15px;
-            border-left: 3px solid #555;
-            background-color: #f1f1f1;
-        }
-        .section h3 {
-            font-size: 1em;
-            margin-top: 0;
-            color: #555;
-        }
-    </style>
 </head>
 <body>
     <h1>Alignment between Game Video and User Operations with Vision Language Models</h1>
     <h2>Overview</h2>
-    <p>Game AI's evolution plays a critical role in shaping the technological landscape and enriching user experiences. 
-        A key challenge in this domain is detecting and interpreting user operations from video data, 
-        which can be leveraged to better understand player strategies, improve AI adaptability, and enhance the complexity of in-game AI responses. 
-        In this work, we implements the <bold>Large-Models-Only (LMO)</bold> framework, which utilizes Vision Language Models (VLMs), 
-        such as LLaVA, MiniCPM-V, and QWen2-VL, to detect these operations. By proposing the LMO framework, 
-        we aim to provide a more robust and scalable solution to capturing user operations across different games, 
-        ultimately advancing the field of Game AI and paving the way for more dynamic, challenging, and adaptive gaming environments. 
+    <p>Game AI's evolution plays a critical role in shaping the technological landscape 
+        and enriching user experiences. A key challenge in this domain is detecting and 
+        interpreting user operations from video data, which can be leveraged to better 
+        understand player strategies, improve AI adaptability, and enhance the 
+        complexity of in-game AI responses. In this work, we implements the 
+        <bold>Large-Models-Only (LMO)</bold> framework, which utilizes Vision Language 
+        Models (VLMs), such as LLaVA, MiniCPM-V, and QWen2-VL, to detect these operations. 
+        By proposing the LMO framework, we aim to provide a more robust and scalable 
+        solution to capturing user operations across different games, ultimately 
+        advancing the field of Game AI and paving the way for more dynamic, challenging, 
+        and adaptive gaming environments. 
     </p>
-    <p>This repository provides the code and resources necessary to evaluate these VLMs for recognizing user actions within game video segments, 
-        enabling a more sophisticated, non-intrusive approach to data collection. The LMO framework is designed to overcome the limitations of 
-        traditional data collection methods, which often involve direct tracking of user inputs and may influence player behavior.
+    <p>This repository provides the code and resources necessary to evaluate these VLMs 
+        for recognizing user actions within game video segments, enabling a more 
+        sophisticated, non-intrusive approach to data collection. The LMO framework is 
+        designed to overcome the limitations of traditional data collection methods, 
+        which often involve direct tracking of user inputs and may influence player behavior.
     </p>
     
     <h2>Approach</h2>
-    <p>We employ several state-of-the-art open-source Vision Language Models—LLaVA, MiniCPM-V, and QWen2-VL—to analyze player actions in game footage. 
-        These models bring together capabilities in computer vision and natural language processing, 
-        capturing the visual and contextual nuances of gameplay without the need for manual or intrusive data collection methods. 
-        Our LMO framework not only increases scalability by reducing dependence on control customizations across games 
-        but also introduces a high degree of generalizability for Game AI research.
+    <p>We employ several state-of-the-art open-source Vision Language Models—LLaVA, 
+        MiniCPM-V, and QWen2-VL—to analyze player actions in game footage. These models 
+        bring together capabilities in computer vision and natural language processing, 
+        capturing the visual and contextual nuances of gameplay without the need for 
+        manual or intrusive data collection methods. Our LMO framework not only 
+        increases scalability by reducing dependence on control customizations across 
+        games but also introduces a high degree of generalizability for Game AI research.
     </p>
 
 
     <h2>Key Features</h2>
     <ul>
-        <li>Non-Intrusive Player Action Recognition: Detects user operations in game videos without disrupting gameplay.</li>
-        <li>High-Performance VLMs: Utilizes powerful Vision Language Models for accurate alignment with player actions.</li>
-        <li>Enhanced Game AI Training Data: Generates sophisticated datasets from detected player operations to train more responsive and adaptive Game AI.</li>
+        <li>**Methodological Advantages of VLMs**: The paper delineates the specific 
+            methodological advantages of using Vision-Language Models (VLMs) for 
+            detecting user operations within game videos.</li>
+        <li>**Enrichment of AI Training Datasets**: It highlights how VLMs can be leveraged 
+            to enrich AI training datasets, potentially improving the quality and 
+            diversity of the data used for developing Game AIs.</li>
+        <li>**Enhancing Gaming Interactivity and Competitiveness**: The paper emphasizes 
+            how the integration of VLMs could revolutionize the interactivity and 
+            competitiveness of gaming environments, surpassing the limitations of 
+            traditional data collection methods.</li>
+        <li>**Implications for Future Game AI Research and Development**: The paper 
+            discusses the broader implications of using VLMs for advancing Game AI 
+            research and development, particularly in terms of increasing autonomy 
+            and sophistication in Game AIs.</li>
     </ul>
 
     <h2>Prompt Design</h2>
     
-    <div class="container">
-        <div class="header">Prompt 1: Fighting Detection</div>
-
-        <div class="section">
-            <h3>&lt;BACKGROUND&gt;</h3>
-            <p>A game video segment is an image consists of four frames which are 
-                captures of a game video. The first frame is at the left-top; the 
-                second frame is at the right-top; the third frame is at the left-
-                bottom; and the fourth frame is at the right bottom. You are an 
-                assistant skilled at describing the content of the game video 
-                segment, and detecting if the game player is fighting mode (i.e. 
-                engaged in the visible combat action), or in the peace mode (i.e. 
-                holding weapon or not, but not engaged in any visible combat action). 
-                The game player is usually placed in the middle of the lower part 
-                of the frames.
-            </p>
-            <h3>&lt;/BACKGROUND&gt;</h3>
-          
-            <h3>&lt;REQUIREMENT&gt;</h3>
-            <p>Based on the game video segment, the fighting deteiction result should 
-                be returned in JSON format, encapsulated within a pair of triple 
-                backticks ``` without including any labels like ``json'', ``css'' or 
-                ``data''. Do not use triple backticks elsewhere in your response to 
-                avoid confusion. The JSON should have the key ``fight'' and ``peace'', 
-                with boolean values **true** or **false** indicating whether the 
-                character is fighting or in the peace mode.
-            </p>
-            <h3>&lt;/REQUIREMENT&gt;</h3>
-          
-            <h3>&lt;EXAMPLES&gt;</h3>
-            <p>Here are some examples of the expected response:</p>
-            <p><strong>Example 1:</strong><br>
-                [Response] According to the four frames of the given game segment, the 
-                character is waving its weapon, which implies it is fighting. Here is 
-                the result data:
-            </p>
-            ```<br>
-            {``fight'': true, ``peace'': false }<br>
-            ```
-            <p><strong>Example 2:</strong><br>
-                [Response] According to the four frames of the given game segment, 
-                the character is holding weapon and there is no fighting effects, 
-                which implies it is not fighting. Here is the result data:
-            </p>
-            ```<br>
-            {``fight'': false, ``peace'': true }<br>
-            ```
-            <h3>&lt;/EXAMPLES&gt;</h3>
-
-            <h3>&lt;INSTRUCTION&gt;</h3>
-            <p>Summarize the content of the given game segment, and determine if 
-                the game player is fighting or in the peace mode, following REQUIREMENT.
-            </p>
-            <h3>&lt;/INSTRUCTION&gt;</h3>
-        </div>
-    </div>
+    
 </body>
 </html>
